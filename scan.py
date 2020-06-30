@@ -73,6 +73,7 @@ args = vars(ap.parse_args())
 
 # load image and compute ratio of old height to new height
 # clone and resize
+file_name = args['image'].split('/')[1]
 image = cv2.imread(args["image"])
 ratio = image.shape[0] / 500.0
 orig = image.copy()
@@ -128,5 +129,5 @@ cv2.imshow("Scanned", imutils.resize(warped, height=650))
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-cv2.imwrite('/Users/daminzhang/Development/MobileScanner/outputs/output.jpg', warped)
+cv2.imwrite('/Users/daminzhang/Development/MobileScanner/outputs/'+file_name, warped)
 cv2.waitKey(0)
